@@ -1,0 +1,7 @@
+<!--pages/result/result.wxml-->
+<view class="container" style="padding:1rem;">
+   <text class="result-title">经过检验，你原来是这样的</text>
+   <text class="result-x">{{textf1}}</text>
+   <text class="result-y">{{textf2}}</text>
+</view>
+   <button bindtap="onshow" class="share">点击右上角分享给朋友</button>

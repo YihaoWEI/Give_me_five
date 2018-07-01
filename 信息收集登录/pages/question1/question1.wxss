@@ -1,0 +1,17 @@
+.question-one{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+  font-size: medium;
+}
+
+.checkbox{
+  margin-top: 100px;
+  align-items: left;
+  font-size: small;
+}
+
+.buttonone{
+  font-size: medium;
+}

@@ -1,0 +1,11 @@
+.uploadpic{
+  margin-top: 50px
+}
+
+.resultbar{
+  margin-top: 20px
+}
+
+.result{
+  margin-top: 50px
+}

@@ -1,0 +1,18 @@
+<view class='question1-container'>
+  <view class='question-one'>
+    <text class='title-one'>{{titleone}}</text>
+    <checkbox-group bindchange="checkboxChange">
+       <text>\n</text>
+       <text>\n</text>
+       <label class="checkbox" wx:for="{{items}}">
+       <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+       <text>\n</text>
+       <text>\n</text>
+       </label>
+    </checkbox-group>
+  </view>
+  <progress percent="{{percentage}}" color="lightgreen" />
+  <text>\n</text>
+  <text>\n</text>
+  <button bindtap="nextpage" class='buttonone'>下一题</button>
+</view>

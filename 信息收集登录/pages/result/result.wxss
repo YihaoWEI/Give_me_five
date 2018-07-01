@@ -1,0 +1,18 @@
+.result-title{
+  margin-top: 20px;
+  font-size: small;
+}
+
+.result-x{
+  margin-top: 50px;
+  font-size: large;
+}
+
+.result-y{
+  margin-top: 50px;
+  font-size: small;
+}
+
+.share{
+  margin-top: 50px;
+}

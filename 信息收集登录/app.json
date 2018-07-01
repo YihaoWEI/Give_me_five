@@ -1,0 +1,21 @@
+{
+  "pages":[
+    "pages/index/index",   
+    "pages/logs/logs",
+    "pages/question1/question1",
+    "pages/question2/question2",
+    "pages/question3/question3",
+    "pages/question4/question4",
+    "pages/question5/question5",
+    "pages/question6/question6",
+    "pages/question7/question7",
+    "pages/image/image",
+    "pages/result/result"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "找到平行世界的自己",
+    "navigationBarTextStyle":"black"
+  }
+}
