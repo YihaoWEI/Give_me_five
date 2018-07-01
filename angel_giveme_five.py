@@ -127,8 +127,9 @@ def getimg():
                 pic_name = os.path.join(gamePath, pic_name)
                 print("Game url {}".format(pic_name))
                 game_pic = cv2.imread(pic_name)
-                cv2.imshow("Game Recommeded", game_pic)
-                cv2.waitKey(1)
+
+            cv2.imshow("Game Recommeded", game_pic)
+            cv2.waitKey(1)
 
         print("List {}".format(str2_))
 
