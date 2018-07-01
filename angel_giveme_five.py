@@ -8,14 +8,20 @@ import dlib
 import time
 import os
 import json
+import numpy as np
+
 
 cascPath = "haarcascade_frontalface_default.xml"
 
 projPath = "E:\\pycharms\\angelhack\\"
 
+gamePath = "E:\\pycharms\\angelhack\\games\\"
+
 detector = dlib.get_frontal_face_detector()  # 获取人脸分类器
 
 faceCascade = cv2.CascadeClassifier(cascPath)
+
+total_id = []
 
 
 def compareIm(faceId1, faceId2):
@@ -75,6 +81,8 @@ def getimg():
 
         dets = detector(frame, 1)
 
+        total_id = [] # init []
+
         for index, face in enumerate(dets):
 
             left = face.left()
@@ -91,16 +99,40 @@ def getimg():
             tmp_txt_ = tmp_face_name[:-3] + "txt"
             t_ = os.path.join(projPath, tmp_txt_)
             if os.path.exists(t_):
+
                 f = open(tmp_txt_, "r")
                 print("Read TXT")
                 id = f.read()
-                print("Read {}".format(id))
+                total_id.append(int(id))
                 f.close()
                 cv2.putText(frame, str(id), (right, 400), cv2.FONT_HERSHEY_SIMPLEX, 1.2, (0, 200, 30 * index), 5,
                             cv2.LINE_AA)
         # Display the resulting frame
-
+        print("Total ID{}".format(total_id))
         cv2.imshow('WebCam', frame)
+
+        end2 = "/api/angelhack/table/game/recommendation"
+        ids = total_id
+        data = {"ids": ids}
+        # 2 得到推荐结果
+        response2 = requests.post(url=base_url + end2, data=json.dumps(data), headers=headers)
+
+        str2_ = str(response2.content, encoding="utf8")
+        dict2_ = json.loads(str2_)
+
+        reslist2 = dict2_["result"]
+        if reslist2:
+            for x in reslist2:
+                pic_name = str(x["pic_url"])
+                pic_name = os.path.join(gamePath, pic_name)
+                print("Game url {}".format(pic_name))
+                game_pic = cv2.imread(pic_name)
+                cv2.imshow("Game Recommeded", game_pic)
+                cv2.waitKey(1)
+
+        print("List {}".format(str2_))
+
+
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
@@ -120,11 +152,11 @@ dict_ = json.loads(str_)
 
 reslist = dict_["result"]
 
-end2 = "/api/angelhack/table/game/recommendation"
-ids = [1, 2, 3]
-data = {"ids": ids}
-# 2 得到推荐结果
-response2 = requests.post(url=base_url + end2, data=json.dumps(data), headers=headers)
+# end2 = "/api/angelhack/table/game/recommendation"
+# ids = [1, 2, 3]
+# data = {"ids": ids}
+# # 2 得到推荐结果
+# response2 = requests.post(url=base_url + end2, data=json.dumps(data), headers=headers)
 
 
 

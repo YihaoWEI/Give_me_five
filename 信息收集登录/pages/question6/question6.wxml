@@ -5,7 +5,7 @@
        <text>\n</text>
        <text>\n</text>
        <label class="checkbox" wx:for="{{items}}">
-       <checkbox value="{{item.name}}" checked="{{item.checked}}"/><image style="width: 100px; height: 100px; background-color: #eeeeee;" mode="scaleToFill" src="{{item.src}}"></image>
+       <checkbox value="{{item.name}}" checked="{{item.checked}}"/><image style="width: 150px; height: 100px; background-color: #eeeeee;" mode="scaleToFill" src="{{item.src}}"></image>
        <text>\n</text>
        </label>
     </checkbox-group>
